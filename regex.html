@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Regex Metacharacters & Flags</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <h3>Metacharacters</h3>
+
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\a</span>
+        </div>
+        <div class="title">
+            Match a BELL, <span class="metacharacter">\u0007</span>
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\A</span>
+        </div>
+        <div class="title">
+            Match at the beginning of the input.
+            <div class="comment">Differs from <span class="special">^</span> in that <span
+                    class="metacharacter">\A</span> will not match after a new line within the input.</div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\b</span>
+        </div>
+        <div class="title">
+            Match if the current position is a word boundary.
+            <div class="comment">Boundaries occur at the transitions between word (<span
+                    class="metacharacter">\w</span>) and non-word (<span class="metacharacter">\W</span>) characters,
+                with combining marks ignored.</div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\B</span>
+        </div>
+        <div class="title">
+            Match if the current position is not a word boundary.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\cX</span>
+        </div>
+        <div class="title">
+            Match a control-X character.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\d</span>
+        </div>
+        <div class="title">
+            Match any character with the Unicode General Category of Nd (Number, Decimal Digit.)
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\D</span>
+        </div>
+        <div class="title">
+            Match any character that is not a decimal digit.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\e</span>
+        </div>
+        <div class="title">
+            Match an ESCAPE, <span class="metacharacter">\u001B</span>.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\E</span>
+        </div>
+        <div class="title">
+            Terminates a <span class="metacharacter">\Q</span><span class="content">&hellip;</span><span
+                class="metacharacter">\E</span> quoted sequence.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\f</span>
+        </div>
+        <div class="title">
+            Match a FORM FEED, <span class="metacharacter">\u000C</span>.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\G</span>
+        </div>
+        <div class="title">
+            Match if the current position is at the end of the previous match.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\h</span>
+        </div>
+        <div class="title">
+            Match a Horizontal White Space character.
+            <div class="comment">They are characters with Unicode General Category of Space_Separator plus the ASCII tab
+                (<span class="metacharacter">\u0009</span>).</div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\H</span>
+        </div>
+        <div class="title">
+            Match a non-Horizontal White Space character.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\k<name></span>
+        </div>
+        <div class="title">
+            Named Capture Back Reference.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\n</span>
+        </div>
+        <div class="title">
+            Match a line feed, <span class="metacharacter">\u000A</span>.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\N{<span class="variable">unicode</span>}</span>
+        </div>
+        <div class="title">
+            Match the named character.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\p{<span class="variable">unicode</span>}</span>
+        </div>
+        <div class="title">
+            Match any character with the specified Unicode Property.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\P{<span class="variable">unicode</span>}</span>
+        </div>
+        <div class="title">
+            Match any character not having the specified Unicode Property.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\Q</span>
+        </div>
+        <div class="title">
+            Quotes all following characters until <span class="metacharacter">\E</span>.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\r</span>
+        </div>
+        <div class="title">
+            Match a carriage return, <span class="metacharacter">\u000D</span>.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\R</span>
+        </div>
+        <div class="title">
+            Match a new line character, or the sequence CR LF.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\s</span>
+        </div>
+        <div class="title">
+            Match a white space character.
+            <div class="comment">White space is defined as <span class="metacharacter">[\t\n\f\r\p{Z}]</span>.</div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\S</span>
+        </div>
+        <div class="title">
+            Match a non-white space character.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\t</span>
+        </div>
+        <div class="title">
+            Match a horizontal tabulation, <span class="metacharacter">\u0009</span>.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\uhhhh</span>
+        </div>
+        <div class="title">
+            Match the character with the hex value hhhh.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\Uhhhhhhhh</span>
+        </div>
+        <div class="title">
+            Match the character with the hex value hhhhhhhh.
+            <div class="comment">Exactly eight hex digits must be provided, even though the largest Unicode code point
+                is <span class="metacharacter">\U0010ffff</span>.</div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\v</span>
+        </div>
+        <div class="title">
+            Match a new line character.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\V</span>
+        </div>
+        <div class="title">
+            Match a non-new line character.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\w</span>
+        </div>
+        <div class="title">
+            Match a word character.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\W</span>
+        </div>
+        <div class="title">
+            Match a non-word character.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\x{hhhh}</span>
+        </div>
+        <div class="title">
+            Match the character with hex value hhhh.
+            <div class="comment">From one to six hex digits may be supplied.</div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\xhh</span>
+        </div>
+        <div class="title">
+            Match the character with two digit hex value hh
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\X</span>
+        </div>
+        <div class="title">
+            Match a Grapheme Cluster .
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\Z</span>
+        </div>
+        <div class="title">
+            Match if the current position is at the end of input, but before the final line terminator, if one exists.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\z</span>
+        </div>
+        <div class="title">
+            Match if the current position is at the end of input.
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            <span class="metacharacter">\n</span>
+        </div>
+        <div class="title">
+            Back Reference. Match whatever the nth capturing group matched. n must be a number > 1 and < total number of
+                capture groups in the pattern. </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="metacharacter">\0ooo</span>
+            </div>
+            <div class="title">
+                Match an Octal character.
+                <div class="comment">'ooo' is from one to three octal digits. 0377 is the largest allowed Octal
+                    character. The leading zero is required; it distinguishes Octal constants from back references.
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="metacharacter">[</span><span class="content">&hellip;</span><span
+                    class="metacharacter">]</span>
+            </div>
+            <div class="title">
+                Match any one character from the set.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">.</span>
+            </div>
+            <div class="title">
+                Match any character.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">^</span>
+            </div>
+            <div class="title">
+                Match at the beginning of a line.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">$</span>
+            </div>
+            <div class="title">
+                Match at the end of a line.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">\</span>
+            </div>
+            <div class="title">
+                Quotes the following character.
+                <div class="comment">Characters that must be quoted to be treated as literals are <span
+                        class="special">* ? + [ ( ) { } ^ $ | \ .</a></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">\</span>
+            </div>
+            <div class="title">
+                Quotes the following character.
+                <div class="comment">Characters that must be quoted to be treated as literals are <span
+                        class="special">[ ] \</span></div>
+            </div>
+        </div>
+
+        <h3>Operators</h3>
+        <div class="item">
+            <div class="code">
+                <span class="special">|</span>
+            </div>
+            <div class="title">
+                Alternation. A<span class="special">|</span>B matches either A or B.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">*</span>
+            </div>
+            <div class="title">
+                Match 0 or more times. Match as many times as possible.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">+</span>
+            </div>
+            <div class="title">
+                Match 1 or more times. Match as many times as possible.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">?</span>
+            </div>
+            <div class="title">
+                Match zero or one times. Prefer one.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">{n}</span>
+            </div>
+            <div class="title">
+                Match exactly n times
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">{n,}</span>
+            </div>
+            <div class="title">
+                Match at least n times. Match as many times as possible.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">{n,m}</span>
+            </div>
+            <div class="title">
+                Match between n and m times. Match as many times as possible, but not more than m.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">*?</span>
+            </div>
+            <div class="title">
+                Match 0 or more times. Match as few times as possible.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">+?</span>
+            </div>
+            <div class="title">
+                Match 1 or more times.
+                <div class="comment">Match as few times as possible.</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">??</span>
+            </div>
+            <div class="title">
+                Match zero or one times. Prefer zero.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">{n}?</span>
+            </div>
+            <div class="title">
+                Match exactly n times
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">{n,}?</span>
+            </div>
+            <div class="title">
+                Match at least n time§s, but no more than required for an overall pattern match
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">{n,m}?</span>
+            </div>
+            <div class="title">
+                Match between n and m times.
+                <div class="comment">Match as few times as possible, but not less than n.</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">*+</span>
+            </div>
+            <div class="title">
+                Match 0 or more times.
+                <div class="comment">Match as many times as possible when first encountered, do not retry with fewer
+                    even if overall match fails (Possessive Match)</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">++</span>
+            </div>
+            <div class="title">
+                Match 1 or more times. Possessive match.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">?+</span>
+            </div>
+            <div class="title">
+                Match zero or one times. Possessive match.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">{n}+</span>
+            </div>
+            <div class="title">
+                Match exactly n times
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">{n,}+</span>
+            </div>
+            <div class="title">
+                Match at least n times. Possessive Match.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">{n,m}+</span>
+            </div>
+            <div class="title">
+                Match between n and m times. Possessive Match.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(</span><span class="content">&hellip;</span><span class="special"><span
+                        class="special">)</span>
+            </div>
+            <div class="title">
+                Capturing parentheses.
+                <div class="comment">Range of input that matched the parenthesized subexpression is available after the
+                    match.</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?:</span><span class="content">&hellip;</span><span class="special"><span
+                        class="special">)</span>
+            </div>
+            <div class="title">
+                Non-capturing parentheses.
+                <div class="comment">Groups the included pattern, but does not provide capturing of matching text.
+                    Somewhat more efficient than capturing parentheses.</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?></span><span class="content">&hellip;</span><span class="special"><span
+                        class="special">)</span>
+            </div>
+            <div class="title">
+                Atomic-match parentheses.
+                <div class="comment">First match of the parenthesized subexpression is the only one tried; if it does
+                    not lead to an overall pattern match, back up the search for a match to a position before the "<span
+                        class="special">(?></span>"</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?#</span><span class="content">&hellip;</span><span class="special"><span
+                        class="special">)</span>
+            </div>
+            <div class="title">
+                Free-format comment (?# comment ).
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?=</span><span class="content">&hellip;</span><span class="special"><span
+                        class="special">)</span>
+            </div>
+            <div class="title">
+                Look-ahead assertion.
+                <div class="comment">True if the parenthesized pattern matches at the current input position, but does
+                    not advance the input position.</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?!</span><span class="content">&hellip;</span><span class="special"><span
+                        class="special">)</span>
+            </div>
+            <div class="title">
+                Negative look-ahead assertion.
+                <div class="comment">True if the parenthesized pattern does not match at the current input position.
+                    Does not advance the input position.</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?<=< /span><span class="content">&hellip;</span><span class="special"><span
+                                class="special">)</span>
+            </div>
+            <div class="title">
+                Look-behind assertion.
+                <div class="comment">True if the parenthesized pattern matches text preceding the current input
+                    position, with the last character of the match being the input character just before the current
+                    position. Does not alter the input position. The length of possible strings matched by the
+                    look-behind pattern must not be unbounded (no <span class="special">*</span> or <span
+                        class="special">+</span> operators.)</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?<!< /span><span class="content">&hellip;</span><span class="special"><span
+                                class="special">)</span>
+            </div>
+            <div class="title">
+                Negative Look-behind assertion.
+                <div class="comment">True if the parenthesized pattern does not match text preceding the current input
+                    position, with the last character of the match being the input character just before the current
+                    position. Does not alter the input position. The length of possible strings matched by the
+                    look-behind pattern must not be unbounded (no <span class="special">*</span> or <span
+                        class="special">+</span> operators.)</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?<name></span><span class="content">&hellip;</span><span class="special">)</span>
+            </div>
+            <div class="title">
+                Named capture group. The <angle brackets> are literal - they appear in the pattern.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?</span>ismwx-ismwx:<span class="content">&hellip;</span><span
+                    class="special"><span class="special">)</span>
+            </div>
+            <div class="title">
+                Flag settings.
+                <div class="comment">Evaluate the parenthesized expression with the specified flags enabled or
+                    -disabled.</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="special">(?</span>ismwx-ismwx<span class="special">)</span>
+            </div>
+            <div class="title">
+                Flag settings.
+                <div class="comment">Change the flag settings. Changes apply to the portion of the pattern following the
+                    setting. For example, <span class="special">(?</span>i<span class="special">)</span> changes to a
+                    case insensitive match.</div>
+            </div>
+        </div>
+
+        <h3>Set Expressions</h3>
+
+        <div class="item">
+            <div class="code">
+                <span class="metacharacter">[abc]</span>
+            </div>
+            <div class="title">
+                Match any of the characters a, b or c
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="metacharacter">[^abc]</span>
+            </div>
+            <div class="title">
+                Negation - match any character except a, b or c
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="metacharacter">[A-M]</span>
+            </div>
+            <div class="title">
+                Range - match any character from A to M. The characters to include are determined by Unicode code point
+                ordering.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                <span class="metacharacter">[\u0000-\U0010ffff]</span>
+            </div>
+            <div class="title">
+                Range - match all characters.
+            </div>
+        </div>
+
+
+        <h3>Flags</h3>
+        <div class="item">
+            <div class="code">
+                i
+            </div>
+            <div class="title">
+                If set, matching will take place in a case-insensitive manner.
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                x
+            </div>
+            <div class="title">
+                If set, allow use of white space and #comments within patterns
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                s
+            </div>
+            <div class="title">
+                If set, a "." in a pattern will match a line terminator in the input text. By default, it will not.
+                <div class="comment">
+                    Note that a carriage-return / line-feed pair in text behave as a single line terminator, and will
+                    match a single "." in a RE pattern.
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="code">
+                m
+            </div>
+            <div class="title">
+                Control the behavior of <span class="special">^</span> and <span class="special">$</span> in a pattern.
+                <div class="comment">
+                    By default these will only match at the start and end, respectively, of the input text. If this flag
+                    is set, <span class="special">^</span> and <span class="special">$</div> will also match at the
+                start and end of each line within the input text.
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="code">
+            w
+        </div>
+        <div class="title">
+            Controls the behavior of <span class="metacharacter">\b</span> in a pattern.
+            <div class="commment">
+                If set, word boundaries are found according to the definitions of word found in Unicode UAX 29, Text
+                Boundaries.
+                By default, word boundaries are identified by means of a simple classification of characters as either
+                “word” or “non-word”, which approximates traditional regular expression behavior. The results obtained
+                with the two options can be quite different in runs of spaces and other non-word characters.
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

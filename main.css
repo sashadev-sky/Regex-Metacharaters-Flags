@@ -1,0 +1,97 @@
+body {
+  background: clear;
+  color: textColor;
+  margin: 30px 20px;
+  padding: 0;
+  margin-top: 12px;
+  font-family: "Helvetica Neue";
+  font-size: 13px;
+  line-height: 1.3em;
+}
+
+h1, h2, h3, h4,h5 {
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin: 12px 0 0 0;
+  padding: 0;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin-top: 36px;
+}
+
+h3:first-child {
+  margin-top: 12px;
+}
+
+div.item {
+  margin: 8px 0;
+}
+
+div.item > div.code {
+  width: 5em;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 6px 0.5em;
+  border-radius: 3px;
+  display: table-cell;
+  text-align: center;
+  font-weight: 300;
+  font-family: "Monaco", "Menlo";
+  vertical-align: middle;
+  letter-spacing: 2px;
+  word-break: break-all;
+}
+
+.special {
+  color: $(specialCharacterColor);
+}
+
+.metacharacter {
+  color: $(metacharacterColor);
+}
+
+.variable {
+  letter-spacing: 0px;
+}
+
+span.content {
+  color: $(plainTextColor);
+  letter-spacing: 0px;
+}
+
+span.comment {
+  color: $(commentColor);
+}
+
+div.item > div.title {
+  display: table-cell;
+  padding-left: 12px;
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+div.comment {
+  margin-top: 0.25em;
+  font-size: 0.9em;
+}
+
+div.item > div.example {
+  margin: 12px 0 20px 80px;
+  width: 300px;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
+a {
+  color: $(linkColor);
+  text-decoration: none;
+}
+
+a:hover {
+  color: $(hoverLinkColor);
+}
+
+div.license {
+  font-size: 10px;
+}
